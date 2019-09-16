@@ -18,6 +18,10 @@ mongoose.connect("mongodb://localhost:27017/academind", {
   useUnifiedTopology: true
 });
 
+//dealing with deprication
+//using the default Nodejs Promise implementation instead of the mongoose one
+mongoose.Promise = global.Promise;
+
 // use morgan before routes (its a middleware)
 app.use(morgan("dev"));
 
